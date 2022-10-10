@@ -1,10 +1,15 @@
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        hashTable = {}
-        for i in nums:
-            if i not in hashTable:
-                hashTable[i] = 1
-            else:
-                return True
-        return False
-            
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        def duplicate(nums,hash_table={}):
+            for i in nums:
+                if i in hash_table:
+                    return True
+                    break
+                else:
+                    hash_table[i] = 1
+            return False
+        return duplicate(nums)
